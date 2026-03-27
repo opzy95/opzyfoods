@@ -1,0 +1,33 @@
+.sec1{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-content: center;
+    margin: 10px 20px;
+    gap: 30px;
+}
+img{
+    width: 40%;
+}
+p{
+    width: 40rem;
+    font-size: 23px;
+    line-height: 40px;
+}
+@media screen and (max-width: 768px){
+    .about-img{
+        display: none;
+    }
+    .about-text{
+        width: 90%;
+    }
+    .about-text p{
+        width: 17rem;
+        font-size: 23px;
+    line-height: 25px;
+    }
+    .about-text h1{
+        text-align: center;
+    }
+
+    }

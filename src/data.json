@@ -1,0 +1,76 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Delicious Pizza",
+        "price": 10,
+        "category": "pizza",
+        "desc": "There's nothing quite like the taste of a perfectly made pizza. From the first bite, the crispy crust melts in your mouth, paired with fresh, delicious toppings. Every bite is warm, savory, and bursting with goodness.",
+        "image": "/f1.png"
+      },
+      {
+        "id": 2,
+        "name": "Delicious Burger",
+        "price": 12,
+        "category": "burger",
+        "desc": "Sink your teeth into our succulent burger, loaded with premium beef, crispy bacon, melted cheese, and all your favorite toppings. Every ingredient is handpicked to ensure maximum flavor and satisfaction.",
+        "image": "/f2.png"
+      },
+      {
+        "id": 3,
+        "name": "Delicious Pizzar",
+        "price": 12,
+        "category": "pizza",
+        "desc": "Our signature pizza features a perfectly baked crust topped with rich tomato sauce, fresh mozzarella, and a medley of toppings. Enjoy the perfect harmony of flavors and textures in every slice.",
+        "image": "/f3.png"
+      },
+      {
+        "id": 4,
+        "name": "Delicious Pasta",
+        "price": 12,
+        "category": "pasta",
+        "desc": "Experience authentic Italian pasta with our creamy and smooth sauce. Whether it's a classic carbonara or a savory bolognese, each bite transports you to the heart of Italy.",
+        "image": "/f4.png"
+      },
+      {
+        "id": 5,
+        "name": "French Fries",
+        "price": 12,
+        "category": "fries",
+        "desc": "Crispy on the outside, fluffy on the inside — our golden French fries are the perfect side dish or snack. Seasoned to perfection and served hot and fresh.",
+        "image": "/f5.png"
+      },
+      {
+        "id": 6,
+        "name": "Delicious Pizza",
+        "price": 12,
+        "category": "pizza",
+        "desc": "Our wood-fired pizza with premium ingredients and authentic Italian recipes. Topped with fresh vegetables, premium meats, and our special sauce for an unforgettable taste.",
+        "image": "/f6.png"
+      },
+      {
+        "id": 7,
+        "name": "Tasty Burger",
+        "price": 12,
+        "category": "burger",
+        "desc": "A gourmet burger crafted with care, featuring a juicy patty, fresh lettuce, ripe tomatoes, and a tangy special sauce on a soft, toasted bun.",
+        "image": "/f7.png"
+      },
+      {
+        "id": 8,
+        "name": "Tasty Burger",
+        "price": 12,
+        "category": "burger",
+        "desc": "Double the patties, double the flavor! Our deluxe burger packs twice the beef and all the trimmings for those with a hearty appetite.",
+        "image": "/f8.png"
+      },
+      {
+        "id": 9,
+        "name": "Delicious Pasta",
+        "price": 12,
+        "category": "pasta",
+        "desc": "Handmade pasta served with our house-made tomato sauce, fresh herbs, and a touch of garlic. A true comfort food that warms your soul.",
+        "image": "/f9.png"
+      }
+    ]
+}

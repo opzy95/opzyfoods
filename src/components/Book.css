@@ -1,0 +1,53 @@
+  form{        
+  flex-direction: column;   
+  gap: 35px;
+  display: flex;      
+  width: 600px;                     
+}
+
+form input, form button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.btn{
+    width: 110px;
+    padding: 12px;
+    border-radius: 50px;
+}
+form h1{
+    padding: 10px;
+    color: white;
+
+}
+.sec3{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    background-color: rgb(30, 33, 46);
+}
+
+@media screen and (max-width: 768px){
+    .sec3{
+        width: 100%;
+        gap: 30px;
+    }
+    form{
+        width: 50%;
+        gap: 10px;
+    }
+    form input, form button{
+        padding: 5px;
+    }
+    form h1{
+        font-size: 20px;
+        width: 10rem;
+    }
+    .btn{
+    width: 80px;
+    padding: 6px;
+    border-radius: 50px;
+    font-size: 10px;
+}
+}

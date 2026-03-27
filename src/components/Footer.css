@@ -1,0 +1,40 @@
+.footer {
+  background-color: #222; /* dark background */
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer a {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer-content{
+    display: flex;
+
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+@media screen and (max-width: 768px){
+    footer{
+        width: 100%;
+
+    }
+    .footer-content{
+    display: block;
+}
+.footer-content p{
+    width: 99%;
+    font-size: 14px;
+    line-height: 25px;
+}
+}
