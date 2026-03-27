@@ -8,11 +8,9 @@
 }
 .immage{
     background-color: #ccc;
-    /* width: 100% !important; */
-    /* border-bottom-left-radius: 50px; */
+   
      border-radius: 8px 8px 0 50px;
-    /* padding: none; */
-    /* height: 100px; */
+    
 }
 
 .ppp{

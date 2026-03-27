@@ -69,12 +69,12 @@
 
   .menu-container {
     position: fixed;
-    top: 150px;
+    top: 120px;
     left: -100%; /* Completely hidden off-screen */
     flex-direction: column;
     justify-content: right;
     background: #ffffff;
-    width: 50%;
+    width: 70%;
     height: 100vh;
     margin: 0;
     transition: 0.4s ease-in-out;
