@@ -11,7 +11,8 @@ function Nav() {
 
   return (
     <nav className="navbar">
-      <h1 className="logo">Sparko</h1>
+      {/* <h1 className="logo">Soffy Cafe</h1> */}
+      <img className='logo' src="/pp.jpeg" alt="" />
 
       {/* Hamburger only visible on mobile */}
       <div className="hamburger" onClick={toggleMenu}>
