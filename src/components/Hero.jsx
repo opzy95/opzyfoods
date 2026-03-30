@@ -25,7 +25,7 @@ function Hero() {
       <img src="./src/assets/product-img/hero.jpg" alt="" />
 
       <div className="hero-text">
-        <h1 className="fade">{texts[index]}</h1>
+        <h1 className="">{texts[index]}</h1>
       </div>
     </div>
   );
