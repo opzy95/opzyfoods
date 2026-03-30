@@ -110,6 +110,7 @@ h1{
     .sentence{
       font-size: 2.5rem;
       width: 300px;
+      line-height: 1.3;
     }
 
 }
