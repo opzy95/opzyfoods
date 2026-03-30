@@ -22,7 +22,7 @@ function Hero() {
 
   return (
     <div className="hero">
-      <img src="./src/assets/product-img/hero.jpg" alt="" />
+      <img src="/hero.jpg" alt="" />
 
       <div className="hero-text">
         <h1 className="">{texts[index]}</h1>

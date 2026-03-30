@@ -5,7 +5,7 @@ import './About.css'
 function About(){
     return(
         <div className="sec1">
-    <img className="about-img" src="./src/assets/product-img/about-img.png" alt=""/>
+    <img className="about-img" src="./about-img.png" alt=""/>
     <div className="about-text">
         <h1>About Us</h1>
         <p>
