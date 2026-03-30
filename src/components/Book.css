@@ -23,6 +23,7 @@ form h1{
 }
 .sec3{
     display: flex;
+    gap: 70px;
     justify-content: center;
     padding: 30px;
     background-color: rgb(30, 33, 46);

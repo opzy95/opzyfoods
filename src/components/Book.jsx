@@ -14,7 +14,7 @@ function Book() {
         <input type="date" />
         <button className="btn" type="submit">Book Now</button>
       </form>
-    <img src="/about-img.png" alt=""/>
+    <img src="/res.jpg" alt=""/>
     </div>
   );
 }

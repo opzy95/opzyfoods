@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import './About.css'
+import { motion } from "framer-motion";
 
 
 function About(){
     return(
         <div className="sec1">
-    <img className="about-img" src="./about-img.png" alt=""/>
+    <motion.img className="about-img" src="./about-img.png" alt="" initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.1 }}/>
     <div className="about-text">
         <h1>About Us</h1>
         <p>
