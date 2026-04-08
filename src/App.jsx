@@ -5,6 +5,7 @@ import About from './components/About'
 import Book from './components/Book'
 import Footer from './components/Footer'
 import Menu from './components/Menu'
+import Cart from './components/Cart'
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
         <Route path="/book" element={<Book />} />
+         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </>

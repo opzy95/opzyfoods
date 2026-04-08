@@ -13,6 +13,9 @@ import { useState, useEffect } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import React from "react";
 import { motion } from "framer-motion";
+import{useContext} from "react";
+import { CartContext} from "./CartContext";
+
 
 function Nav() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -23,6 +26,7 @@ function Nav() {
   const whatsappLink = "https://wa.me/2348137186223?text=Hello%20there!";
   const [showQR, setShowQR] = React.useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const {addToCart} = useContext(CartContext);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -75,7 +79,7 @@ function Nav() {
   };
 
   const handleSubmit = () => {
-    alert(`Added ${quantity} ${selectedProduct.name}(s) to cart!`);
+    addToCart (selectedProduct, quantity);
     setModalOpen(false);
     setSelectedProduct(null);
   };
@@ -207,7 +211,7 @@ function Nav() {
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "space-evenly",
-          gap: "10px",
+          gap: "8px",
           width: "80%",
           marginTop: "30px",
         }}
