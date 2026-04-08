@@ -20,6 +20,8 @@
   flex: 1;
   justify-content: space-evenly;
   margin-left: 50px;
+  z-index: 999;
+  position: sticky;
 }
 
 .nav-links {
@@ -75,13 +77,14 @@
     top: 120px;
     left: -100%; /* Completely hidden off-screen */
     flex-direction: column;
-    justify-content: right;
+    justify-content: flex-start;
     background: #ffffff;
     width: 70%;
     height: 100vh;
     margin: 0;
     transition: 0.4s ease-in-out;
     z-index: 1000;
+    padding-top: 30px;
   }
 
   .menu-container.active {
