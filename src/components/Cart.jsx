@@ -1,33 +1,55 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CartContext } from "./CartContext";
-import { FaPlus, FaMinus, FaTrash, FaTimes, FaWhatsapp } from "react-icons/fa";
+import { FaPlus, FaMinus, FaTrash, FaTimes, FaWhatsapp, FaQrcode } from "react-icons/fa";
+import QRCode from "qrcode";
 import "./Cart.css";
 
 function Cart({ onClose }) {
   const { cart, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
+  const [showQR, setShowQR] = useState(false);
+  const [qrDataUrl, setQrDataUrl] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-  const handleWhatsAppOrder = () => {
   const phoneNumber = "2348137186223";
-  
-  // 1. Create the list of items
-  const itemsList = cart
-    .map((item) => `• ${item.name} x${item.quantity} — $${(item.price * item.quantity).toFixed(2)}`)
-    .join("%0A"); // %0A is a "new line" in a URL
 
-  // 2. Create the full message
-  const message = `Hello! I'd like to place an order:%0A%0A${itemsList}%0A%0A*Total: $${total.toFixed(2)}*`;
+  const buildWhatsAppUrl = () => {
+    const itemsList = cart
+      .map((item) => `• ${item.name} x${item.quantity} — $${(item.price * item.quantity).toFixed(2)}`)
+      .join("%0A");
+    const message = `Hello! I'd like to place an order:%0A%0A${itemsList}%0A%0A*Total: $${total.toFixed(2)}*`;
+    return `https://wa.me/${phoneNumber}?text=${message}`;
+  };
 
-  // 3. Open WhatsApp
-  window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
-};
+  // Detect mobile
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Generate QR code when modal opens
+  useEffect(() => {
+    if (showQR) {
+      QRCode.toDataURL(buildWhatsAppUrl(), { width: 220, margin: 2 })
+        .then(setQrDataUrl)
+        .catch(console.error);
+    }
+  }, [showQR, cart]);
+
+  const handlePlaceOrder = () => {
+    if (isMobile) {
+      window.open(buildWhatsAppUrl(), "_blank");
+    } else {
+      setShowQR(true);
+    }
+  };
 
   return (
     <>
-      {/* Backdrop */}
       <div className="cart-backdrop" onClick={onClose} />
 
-      {/* Modal */}
       <div className="cart-modal">
 
         {/* Header */}
@@ -75,13 +97,30 @@ function Cart({ onClose }) {
               <button className="cart-clear-btn" onClick={clearCart}>
                 <FaTrash /> Clear Cart
               </button>
-              <button className="cart-whatsapp-btn" onClick={handleWhatsAppOrder}>
-                <FaWhatsapp /> Place Order
+              {/* ✅ Shows QR icon on desktop, WhatsApp icon on mobile */}
+              <button className="cart-whatsapp-btn" onClick={handlePlaceOrder}>
+                {isMobile ? <FaWhatsapp /> : <FaQrcode />}
+                Place Order
               </button>
             </div>
           </div>
         )}
       </div>
+
+      {/* ✅ QR Code Modal — desktop only */}
+      {showQR && (
+        <>
+          <div className="qr-backdrop" onClick={() => setShowQR(false)} />
+          <div className="qr-modal">
+            <button className="qr-close" onClick={() => setShowQR(false)}><FaTimes /></button>
+            <FaWhatsapp className="qr-wa-icon" />
+            <h3>Scan to Order on WhatsApp</h3>
+            <p>Open your phone camera and scan the QR code below</p>
+            {qrDataUrl && <img src={qrDataUrl} alt="WhatsApp QR Code" className="qr-image" />}
+            <span className="qr-hint">Points directly to our WhatsApp chat</span>
+          </div>
+        </>
+      )}
     </>
   );
 }
