@@ -1,52 +1,53 @@
-/* BASE STYLES (Desktop First) */
+/* ===== BASE / DESKTOP ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
   background: #fff;
-  position: relative;
   height: 70px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-.logo{
-  width: 105px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
+.logo {
+  width: 80px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Desktop nav links — center */
 .menu-container {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
   flex: 1;
-  justify-content: space-evenly;
-  margin-left: 50px;
-  z-index: 999;
-  position: sticky;
+  justify-content: center;
+  margin-left: 40px;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
   gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 16px;         /* ✅ fixed — was 25px, way too large */
+  transition: color 0.3s;
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.icon-group {
-  display: flex;
-  gap: 15px;
-  font-size: 1.2rem;
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ff4d4d;
 }
 
 .order-btn {
@@ -57,53 +58,160 @@
   border-radius: 5px;
   cursor: pointer;
   white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.hamburger {
-  display: none; /* Hidden on desktop */
-  font-size: 1.8rem;
+.order-btn:hover {
+  background: #e03e3e;
+}
+
+/* Icons + hamburger — always on the right */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.icon-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon {
+  font-size: 20px;
   cursor: pointer;
-  z-index: 1001;
+  color: #333;
+  transition: color 0.3s;
 }
 
-/* MOBILE STYLES */
+.icon:hover {
+  color: #ff4d4d;
+}
+
+.cart-wrapper {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger — desktop hidden */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  align-items: center;
+  z-index: 1002;          /* ✅ above mobile menu overlay */
+}
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block; /* Hamburger appears only on mobile */
+  .navbar {
+    padding: 0 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 65px;
   }
 
+  /* Hide desktop menu by default */
   .menu-container {
-    position: fixed;
-    top: 120px;
-    left: -100%; /* Completely hidden off-screen */
+    display: none;
+    margin-left: 0;
+  }
+
+  /* Fullscreen overlay when open */
+  .menu-container.active {
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    background: #ffffff;
+    position: fixed;
+    top: 7%;
+    left: 0;
     width: 70%;
     height: 100vh;
-    margin: 0;
-    transition: 0.4s ease-in-out;
-    z-index: 1000;
-    padding-top: 30px;
+    background: white;
+    /* z-index: 1000;      */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 
-  .menu-container.active {
-    left: 0; /* Slides into view when clicked */
-  }
-
-  .nav-links {
+  /* Mobile menu links */
+  .menu-container.active .nav-links {
     flex-direction: column;
-    text-align: center;
-    font-size: 1.5rem;
+    align-items: center;
+    gap: 25px;
   }
 
-  .nav-actions {
-    flex-direction: column;
-    gap: 20px;
+  .menu-container.active .nav-links a {
+    font-size: 22px;        /* ✅ large and readable on mobile menu */
+    color: #333;
+  }
+
+  .menu-container.active .order-btn {
+    padding: 12px 35px;
+    font-size: 16px;
+    border-radius: 25px;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Icons always visible */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
   }
 
   .icon-group {
-    gap: 30px;
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .logo {
+    width: 65px;
+  }
+
+  .icon-group {
+    gap: 10px;
+  }
+
+  .icon {
+    font-size: 17px;
   }
 }
